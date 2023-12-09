@@ -1,0 +1,5 @@
+Contact: mailto:security@eliacim.com
+
+Expires: 2025-01-01T05:59:00.000Z
+
+Canonical: https://eliacim.com/.well-known/security.txt
