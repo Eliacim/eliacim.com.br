@@ -40,7 +40,7 @@
         <!-- Google Font Link -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap" rel="stylesheet">
 
         <!-- Favicons -->
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/eliacim_16x16.png">
@@ -54,27 +54,51 @@
 
         <!-- Great Design Solution -->
         <style>
-            body {
-                background-color: #202124;
-                color: #484848;
-                font-family: Arial, sans-serif;
+            body, html {
                 margin: 0;
                 padding: 0;
+                font-family: 'Roboto', sans-serif;
+                background-color: #000;
+                color: #fff;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .container {
+                width: 80%;
+                max-width: 1000px;
+            }
+
+            h1 {
+                font-size: 4rem;
+                font-weight: 900;
+                margin-bottom: 0.5em;
+                line-height: 1.1;
+            }
+
+            h1:hover {
+                color: orange;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 100;
+                margin-bottom: 2em;
+                opacity: 0.75;
             }
 
             .text {
-                font-size: 5em;
-                margin-top: 5vh;
-                padding-left: 2vw;
-                text-align: left;
-                font-weight: bold;
-                font-family: 'Pacifico', cursive;
-            }
-
-            @media (max-width: 600px) {
-                .text {
-                    font-size: 2em;
-                }
+                font-size: 1.5rem;
+                font-weight: 350;
+                line-height: 1.5;
+                color: #FFFFFF;
+                max-width: 680px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1rem;
             }
         </style>
 
@@ -82,7 +106,31 @@
 
     <body>
 
-        <h1 class="text">eliacim</h1>
+        <!-- Point of View -->
+        <div class="container">
+            <h1>The mysterious digital realm of myself</h1>
+            <h2>No treasures to find here.</h2>
+            <p class="text">In my own enigmatic digital world, there are no obvious treasures to unearth. It's a realm shrouded in mystery, where the actual value lies not in tangible riches but in the subtle insights and knowledge about myself. Here, amidst the digital expanse, lies the potential for personal growth and deep introspection. Despite the risks to privacy and security, this digital journey offers a balance, a chance to delve into the unknown aspects of my digital identity and discover the hidden gems of self-awareness and personal evolution.</p>
+        </div>
+        
+        <!-- Myself -->
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Person",
+                "name": "Eliacim",
+                "alternateName": "Eliacim",
+                "url": "https://eliacim.com.br",
+                "image": "https://eliacim.com.br/eliacim.jpg",
+                "jobTitle": "Cloud Platform Security Lead",
+                "email": "eliacim@eliacim.email",
+                "sameAs": [
+                "https://linkedin.com/in/eliacim",
+                "https://x.com/eliacim",
+                ],
+                "knowsAbout": ["Information Security", "Cybersecurity", "Cloud Security"]
+            }
+        </script>
 
         <!-- Cloudflare Web Analytics -->
         <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a1d549e79f9843dc848af85e5d580fcf"}'></script>
