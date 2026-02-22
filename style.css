@@ -1,0 +1,125 @@
+/* ── design tokens ────────────────────────────────── */
+:root {
+    --bg-deep: #13141f;
+    --comment: #565f89;
+    --fg: #c0caf5;
+    --fg-dim: #787c99;
+    --cyan: #7dcfff;
+    --blue: #7aa2f7;
+    --purple: #bb9af7;
+    --orange: #ff9e64;
+}
+
+/* ── reset ────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── base ─────────────────────────────────────────── */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg-deep);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ── scanlines overlay ─────────────────────────────── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.18) 2px,
+            rgba(0, 0, 0, 0.18) 4px);
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* ── main layout ───────────────────────────────────── */
+.terminal {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem;
+    gap: 2.4rem;
+}
+
+/* ── content wrapper ───────────────────────────────── */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: min(560px, 88vw);
+}
+
+/* ── prompt line ───────────────────────────────────── */
+.prompt {
+    font-size: 0.72rem;
+    color: var(--comment);
+    margin-bottom: 1.4rem;
+    letter-spacing: 0.05em;
+}
+
+.prompt .host {
+    color: var(--blue);
+}
+
+.prompt .path {
+    color: var(--purple);
+}
+
+.prompt .arrow {
+    color: var(--cyan);
+}
+
+/* ── main phrase ───────────────────────────────────── */
+.phrase {
+    font-size: clamp(1.05rem, 3.2vw, 1.42rem);
+    font-weight: 300;
+    color: var(--fg);
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+}
+
+/* ── phrase string & hover ────────────────────────── */
+.phrase .string {
+    color: var(--cyan);
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.phrase .string:hover {
+    color: var(--orange);
+}
+
+/* ── cursor blink ──────────────────────────────────── */
+.cursor {
+    display: inline-block;
+    width: 0.4em;
+    height: 1.1em;
+    background: var(--cyan);
+    vertical-align: text-bottom;
+    margin-left: 5px;
+    animation: blink 1.1s step-end infinite;
+    box-shadow: 0 0 8px rgba(125, 207, 255, 0.6);
+    border-radius: 1px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

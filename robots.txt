@@ -2,3 +2,4 @@ User-agent: *
 
 Disallow: /icons/
 Disallow: /.well-known/
+Sitemap: https://eliacim.com.br/sitemap.xml
