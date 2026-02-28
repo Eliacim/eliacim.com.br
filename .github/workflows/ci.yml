@@ -38,10 +38,8 @@ jobs:
           echo '{"extends":"stylelint-config-standard"}' > .stylelintrc.json
           npx stylelint "**/*.css"
 
-      - name: Validate sitemap.xml
-        uses: ChristophWurst/xmllint-action@v1
-        with:
-          xml-file: sitemap.xml
+      - name: Validate All XML
+        run: find . -path './.git' -prune -o -name '*.xml' -exec xmllint --noout {} +
 
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
