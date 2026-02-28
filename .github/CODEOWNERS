@@ -1,0 +1,10 @@
+# Global default owner, every file requires review by @eliacim
+* @eliacim
+
+# Lock down critical infrastructure
+/.github/ @eliacim
+/.gitleaks.toml @eliacim
+/.well-known/ @eliacim
+/package.json @eliacim
+/package-lock.json @eliacim
+/AGENT.md @eliacim

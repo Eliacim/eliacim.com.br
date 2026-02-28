@@ -1,5 +1,10 @@
 User-agent: *
 
+Disallow: /.github/
 Disallow: /icons/
 Disallow: /.well-known/
+Disallow: /AGENT.md
+Disallow: /README.md
+Disallow: /package.json
+Disallow: /package-lock.json
 Sitemap: https://eliacim.com.br/sitemap.xml

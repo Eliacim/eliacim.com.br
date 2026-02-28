@@ -58,6 +58,9 @@ ready for production?
 |---|---|
 | `package.json` / `package-lock.json` | Linter version bump |
 | `.github/workflows/ci.yml` | CI pipeline change |
+| `.github/CODEOWNERS` | Ownership / required-reviewer rules change |
+| `.github/SECURITY.md` | Security policy change |
+| `.github/dependabot.yml` | Dependabot schedule or ecosystem change |
 | `robots.txt` | Crawl rules change |
 | `sitemap.xml` | New URL added or content date updated |
 | `.gitleaks.toml` | New Gitleaks false positive to suppress |
