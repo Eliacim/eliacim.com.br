@@ -6,17 +6,6 @@ This is my personal website.
 
 A minimal, retro terminal-themed aesthetic single-page site built with plain HTML and CSS.
 
-## Domains
-
-This codebase serves the following domains via Cloudflare:
-
-- [eliacim.com.br](https://eliacim.com.br)
-- [eliac.im](https://eliac.im)
-- [eliacim.com](https://eliacim.com)
-- [eliacim.org](https://eliacim.org)
-- [eliacim.email](https://eliacim.email)
-- [eliacim.ninja](https://eliacim.ninja)
-
 ## Stack
 
 - **HTML** — single `index.html` page
@@ -28,11 +17,16 @@ This codebase serves the following domains via Cloudflare:
 
 ```
 .
+├── .github/          # GitHub Actions workflows
+├── .well-known/
+│   └── security.txt  # Security disclosure policy
+├── icons/            # Favicons (16×16 → 256×256)
+├── .gitleaks.toml    # Gitleaks allowlist (false-positive suppression)
+├── eliacim.jpg       # Profile photo
 ├── index.html        # Main page
-├── style.css         # Styles and design tokens
 ├── robots.txt        # Crawl rules
 ├── sitemap.xml       # Sitemap for search engines
-├── icons/            # Favicons (16×16 → 256×256)
+├── style.css         # Styles and design tokens
 └── README.md
 ```
 
@@ -60,7 +54,7 @@ Cloudflare Pages is connected directly to the GitHub repository. No separate wor
 | Branch / Event | Environment | Promotion |
 |----------------|-------------|-----------|
 | `dev` push | Preview URL (Cloudflare Pages subdomain) | Automatic |
-| PR merged to `main` | Production (`eliacim.com.br` and aliases) | **Manual approval required** in Cloudflare dashboard |
+| `main` PR merged | Production (`eliacim.com.br`) | **Manual approval required** in Cloudflare dashboard |
 
 **Production deploy flow:**
 1. PR is merged into `main` on GitHub.
