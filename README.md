@@ -17,18 +17,30 @@ A minimal, retro terminal-themed aesthetic single-page site built with plain HTM
 
 ```
 .
-├── .github/          # GitHub Actions workflows
+├── .github/
+│   └── workflows/
+│       └── ci.yml        # CI pipeline (security scan + quality checks)
+├── AGENT.md              # AI agent cheat sheet (workflow, deploy flow, what not to touch)
 ├── .well-known/
-│   └── security.txt  # Security disclosure policy
-├── icons/            # Favicons (16×16 → 256×256)
-├── .gitleaks.toml    # Gitleaks allowlist (false-positive suppression)
-├── eliacim.jpg       # Profile photo
-├── index.html        # Main page
-├── robots.txt        # Crawl rules
-├── sitemap.xml       # Sitemap for search engines
-├── style.css         # Styles and design tokens
+│   └── security.txt      # Security disclosure policy
+├── icons/                # Favicons (16×16 → 256×256)
+├── images/
+│   └── eliacim.jpg       # Profile photo
+├── .gitignore
+├── .gitleaks.toml        # Gitleaks allowlist (false-positive suppression)
+├── .stylelintrc.json     # Stylelint configuration
+├── index.html            # Main page
+├── package.json          # Lint tooling dependencies
+├── package-lock.json     # Pinned lockfile for npm ci
+├── robots.txt            # Crawl rules
+├── sitemap.xml           # Sitemap for search engines
+├── style.css             # Styles and design tokens
 └── README.md
 ```
+
+## Agent Instructions
+
+[`AGENT.md`](AGENT.md) is a cheat sheet for AI agents (Claude Code, Gemini, Google Antigravity, etc.). It documents which files to touch (and which to leave alone) for each type of change, the deploy flow, and the Docker command for lockfile regeneration. Update it whenever the workflow changes.
 
 ## CI/CD
 
@@ -65,6 +77,20 @@ Cloudflare Pages is connected directly to the GitHub repository. No separate wor
 ## Local Development
 
 Open `index.html` in a browser — no build step required.
+
+### Updating the dependency lockfile
+
+The CI pipeline uses `npm ci` to install linters from a pinned lockfile (`package-lock.json`).
+If you change `package.json` (e.g. bump a linter version), regenerate the lockfile without
+installing Node.js locally by running:
+
+```bash
+docker run --rm -v "$PWD":/app -w /app node:lts-alpine npm install
+```
+
+This mounts the repo into a throw-away Alpine container, runs `npm install` to resolve and write
+`package-lock.json`, then removes the container. Commit both `package.json` and `package-lock.json`
+afterwards.
 
 ## SEO
 
