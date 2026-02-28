@@ -18,8 +18,11 @@ A minimal, retro terminal-themed aesthetic single-page site built with plain HTM
 ```
 .
 ├── .github/
-│   └── workflows/
-│       └── ci.yml        # CI pipeline (security scan + quality checks)
+│   ├── workflows/
+│   │   └── ci.yml        # CI pipeline (security scan + quality checks)
+│   ├── CODEOWNERS        # Pull request review requirements
+│   ├── SECURITY.md       # Vulnerability reporting policy
+│   └── dependabot.yml    # Automated dependency update schedule
 ├── AGENT.md              # AI agent cheat sheet (workflow, deploy flow, what not to touch)
 ├── .well-known/
 │   └── security.txt      # Security disclosure policy
