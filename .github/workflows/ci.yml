@@ -15,12 +15,12 @@ jobs:
       pull-requests: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
-          fetch-depth: 0 
-          
+          fetch-depth: 0
+
       - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -28,19 +28,20 @@ jobs:
     name: Code & Link Checks
     needs: security-scan
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Install Node dependencies
+        run: npm ci
 
       - name: HTML Linting
         run: npx htmlhint "**/*.html"
 
       - name: CSS Linting
-        run: |
-          npm install --no-save stylelint stylelint-config-standard
-          echo '{"extends":"stylelint-config-standard"}' > .stylelintrc.json
-          npx stylelint "**/*.css"
-          rm .stylelintrc.json
+        run: npx stylelint "**/*.css"
       
       - name: Install system dependencies for XMLLint
         run: |
@@ -51,6 +52,6 @@ jobs:
         run: xmllint --noout sitemap.xml
 
       - name: Check for broken links
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2
         with:
           args: --verbose --no-progress './**/*.html' README.md
