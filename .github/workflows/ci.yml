@@ -34,6 +34,7 @@ jobs:
 
       - name: CSS Linting
         run: |
+          npm install --no-save stylelint stylelint-config-standard
           echo '{"extends":"stylelint-config-standard"}' > .stylelintrc.json
           npx stylelint "**/*.css"
 
