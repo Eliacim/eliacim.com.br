@@ -23,6 +23,7 @@ jobs:
 
   quality-checks:
     name: Code & Link Checks
+    needs: security-scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -31,9 +32,12 @@ jobs:
       - name: HTML Linting
         run: npx htmlhint "**/*.html"
 
-      #- name: JavaScript Linting
-      #  run: npx standard "**/*.js" 
-        
+      - name: CSS Linting
+        run: npx stylelint --config '{"extends":"stylelint-config-standard"}' "**/*.css"
+
+      - name: Validate XML files
+        run: xmllint --noout **/*.xml
+
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
         with:
