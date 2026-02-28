@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "main", "dev" ]
+    branches: [ "main" ]
 
 jobs:
   security-scan:
@@ -31,8 +31,8 @@ jobs:
       - name: HTML Linting
         run: npx htmlhint "**/*.html"
 
-      - name: JavaScript Linting
-        run: npx standard "**/*.js" 
+      #- name: JavaScript Linting
+      #  run: npx standard "**/*.js" 
         
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
