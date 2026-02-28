@@ -1,0 +1,11 @@
+title = "eliacim.com.br gitleaks config"
+
+[allowlist]
+description = "Allowlist for known false positives"
+
+# Cloudflare Web Analytics / Rocket Loader tokens are public-facing and
+# intentionally embedded in HTML sent to every browser visitor — not secrets.
+regexes = [
+    '''data-cf-beacon=['"]\{.*"token"\s*:\s*"[0-9a-f]{32}".*\}['"]''',
+    '''data-cf-settings="[0-9a-f]+-\|[0-9]+"''',
+]
