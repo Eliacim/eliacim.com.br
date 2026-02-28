@@ -36,10 +36,10 @@ body::before {
     position: fixed;
     inset: 0;
     background: repeating-linear-gradient(to bottom,
-            transparent 0px,
+            transparent 0,
             transparent 2px,
-            rgba(0, 0, 0, 0.18) 2px,
-            rgba(0, 0, 0, 0.18) 4px);
+            rgb(0 0 0 / 18%) 2px,
+            rgb(0 0 0 / 18%) 4px);
     pointer-events: none;
     z-index: 100;
 }
@@ -114,7 +114,7 @@ body::before {
     vertical-align: text-bottom;
     margin-left: 5px;
     animation: blink 1.1s step-end infinite;
-    box-shadow: 0 0 8px rgba(125, 207, 255, 0.6);
+    box-shadow: 0 0 8px rgb(125 207 255 / 60%);
     border-radius: 1px;
 }
 
