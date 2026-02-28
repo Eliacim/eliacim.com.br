@@ -1,0 +1,2 @@
+# Node – local tooling only, never commit
+node_modules/
