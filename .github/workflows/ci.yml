@@ -39,7 +39,9 @@ jobs:
           npx stylelint "**/*.css"
 
       - name: Validate XML files
-        run: xmllint --noout **/*.xml
+        run: |
+          sudo apt-get install -y -qq libxml2-utils > /dev/null
+          xmllint --noout **/*.xml
 
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
