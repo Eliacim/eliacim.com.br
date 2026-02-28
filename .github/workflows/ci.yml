@@ -38,10 +38,10 @@ jobs:
           echo '{"extends":"stylelint-config-standard"}' > .stylelintrc.json
           npx stylelint "**/*.css"
 
-      - name: Validate XML files
-        run: |
-          sudo apt-get install -y -qq libxml2-utils > /dev/null
-          xmllint --noout **/*.xml
+      - name: Validate sitemap.xml
+        uses: ChristophWurst/xmllint-action@v1
+        with:
+          xml-file: sitemap.xml
 
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
