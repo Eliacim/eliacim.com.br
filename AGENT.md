@@ -66,6 +66,8 @@ ready for production?
 | `.gitleaks.toml` | New Gitleaks false positive to suppress |
 | `.stylelintrc.json` | Stylelint rule change |
 | `README.md` | Project-level documentation change |
+| `.well-known/security.txt` | Security disclosure policy change |
+| `.gitignore` | Git ignore rules change |
 
 ---
 
