@@ -81,20 +81,6 @@ Cloudflare Pages is connected directly to the GitHub repository. No separate wor
 
 Open `index.html` in a browser — no build step required.
 
-### Updating the dependency lockfile
-
-The CI pipeline uses `npm ci` to install linters from a pinned lockfile (`package-lock.json`).
-If you change `package.json` (e.g. bump a linter version), regenerate the lockfile without
-installing Node.js locally by running:
-
-```bash
-docker run --rm -v "$PWD":/app -w /app node:lts-alpine npm install
-```
-
-This mounts the repo into a throw-away Alpine container, runs `npm install` to resolve and write
-`package-lock.json`, then removes the container. Commit both `package.json` and `package-lock.json`
-afterwards.
-
 ## SEO
 
 - Canonical URL, Open Graph, and Twitter Card meta tags
