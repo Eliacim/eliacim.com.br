@@ -2,6 +2,14 @@
 
 This is my personal website.
 
+## Status
+
+![Build](https://img.shields.io/github/actions/workflow/status/eliacim/eliacim.com.br/ci.yml?logo=github&style=flat-square&label=Build&color=A6E110)
+![Security](https://img.shields.io/github/actions/workflow/status/Eliacim/eliacim.com.br/github-code-scanning/codeql?logo=github&style=flat-square&label=Security&color=A6E110)
+![Updates](https://img.shields.io/github/actions/workflow/status/Eliacim/eliacim.com.br/dependabot/dependabot-updates?logo=dependabot&style=flat-square&label=Updates&color=A6E110)
+![Commit](https://img.shields.io/github/last-commit/eliacim/eliacim.com.br?style=flat-square&logo=github&label=Commit&color=A6E110)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Feliacim.com.br&style=flat-square&logo=cloudflare&logoColor=white&label=Site&color=A6E110)
+
 ## Overview
 
 A minimal, retro terminal-themed aesthetic single-page site built with plain HTML and CSS.
@@ -66,12 +74,13 @@ Defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), the pipeline 
 
 Cloudflare Pages is connected directly to the GitHub repository. No separate workflow is needed — deployments are triggered automatically based on branch activity.
 
-| Branch / Event | Environment | Promotion |
-|----------------|-------------|-----------|
-| `dev` push | Preview URL (Cloudflare Pages subdomain) | Automatic |
-| `main` PR merged | Production (`eliacim.com.br`) | **Manual approval required** in Cloudflare dashboard |
+| Branch / Event   | Environment                              | Promotion                                            |
+| ---------------- | ---------------------------------------- | ---------------------------------------------------- |
+| `dev` push       | Preview URL (Cloudflare Pages subdomain) | Automatic                                            |
+| `main` PR merged | Production (`eliacim.com.br`)            | **Manual approval required** in Cloudflare dashboard |
 
 **Production deploy flow:**
+
 1. PR is merged into `main` on GitHub.
 2. Cloudflare Pages detects the change and starts the build automatically.
 3. The deploy is held until manually approved in the Cloudflare Pages dashboard.
